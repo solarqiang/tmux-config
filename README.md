@@ -14,19 +14,18 @@ Installation
   Download:
 
 ```bash
-git clone --recursive https://github.com/tony/tmux-config.git ~/.tmux
+git clone --recursive https://github.com/solarqiang/tmux-config.git
 ```
 
-  Copy tmux config to home:
+  Go to config dir
 
 ```bash
-ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
+cd ~/tmux-config
 ```
-
-  Go to config dir:
+  Run install script
 
 ```bash
-cd ~/.tmux
+./install.sh
 ```
 
 Stats
