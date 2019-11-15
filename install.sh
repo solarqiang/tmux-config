@@ -6,10 +6,17 @@
 #!/bin/bash
 
 trap exit ERR
-if [ -d $HOME/.tmux  ]
+base=$(dirname `readlink -f "$0"`)
+if [ ${base} = $HOME/.tmux ]
 then
-    echo .tmux already exist
-    mv $HOME/.tmux $HOME/.tmux.bak
+   echo install.sh already in ~/.tmux: skipping backing up and copying directory
+else
+    if [ -d $HOME/.tmux  ]
+    then
+        echo .tmux already exist
+        mv $HOME/.tmux $HOME/.tmux.bak
+    fi
+    cp -r $base $HOME/.tmux
 fi
 
 if [ -e $HOME/.tmux.conf  ]
@@ -18,8 +25,8 @@ then
     mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
 fi
 
-cp -r $HOME/tmux-config $HOME/.tmux
-ln -s $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
+# You could put custom config there, overriding default config
+echo "source-file ~/.tmux/tmux.conf" > $HOME/.tmux.conf
 
 cd ~/.tmux && git submodule init && git submodule update
 

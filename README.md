@@ -170,6 +170,7 @@ Commands
 Our prefix/leader key is `Control + a` now (just like the `screen` multiplexer). This sequence must be typed before any tmux shortcut.
 
 * `Control + a` before any command
+* `Control + a` **twice** to send `Control + a` to the app inside tmux
 * `Control + a` then `?` to bring up list of keyboard shortcuts
 * `Control + a` then `"` to split window
 * `Control + a` then `<Space>` to change pane arrangement
